@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include<conio.h>
+#include <string.h>
+char stack[20];
+void reverse(int top)
+{
+    if (top == -1)
+	return;
+
+    printf("%c", stack[top]);
+    reverse(top - 1);
+}
+
+void main()
+{
+    char str[20];
+    int top = -1, i, n;
+    clrscr();
+    printf("Enter any string:");
+    scanf("%s", str);
+
+    n = strlen(str);
+
+    for (i = 0; i < n; i++)
+    {
+	top++;
+	stack[top] = str[i];
+    }
+
+    printf("\nOriginal String: %s", str);
+    printf("\nReversed String: ");
+
+    reverse(top);
+
+    getch();
+}
